@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Deportiva</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Tienda Deportiva</h1>
+
+  <!-- Header con carrito -->
+  <header>
+    <div id="cart-button" class="cart-button">
+      🛒 Carrito (<span id="cart-count">0</span> productos)
+    </div>
+  </header>
+
+  <!-- Filtro de categoría -->
+  <select id="category-filter">
+    <option value="">Todas las categorías</option>
+    <option value="Biker">Biker</option>
+    <option value="Calza">Calza</option>
+    <option value="Medias">Medias</option>
+    <option value="Top">Top</option>
+    <option value="Conjuntos">Conjuntos</option>
+  </select>
+
+  <!-- Barra de búsqueda -->
+  
+<input type="text" id="search-input" placeholder="Buscar productos...">
+
+  <!-- Contenedor donde se mostrarán los productos -->
+  <div id="products-container"></div>
+
+  <!-- Paginación -->
+  <div id="pagination"></div>
+
+  <!-- Modal del carrito -->
+  <div id="cart-modal" class="cart-modal" style="display: none;">
+    <div class="cart-modal-content">
+      <span id="close-modal" class="close-modal">&times;</span>
+      <!-- Ícono del carrito -->
+<button id="cart-icon">Carrito</button>
+
+      <h2>Tu Carrito</h2>
+      <div id="cart-items"></div>
+      <div>
+        <p>Total: $<span id="total-price">0.00</span></p>
+        <!-- Botón para finalizar compra -->
+<button id="checkout-button">Encargar pedido</button>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
