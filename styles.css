@@ -10,10 +10,11 @@ body {
 
 header {
   width: 100%;
-  background-color: #387928;
+ background-color:#387928;
   color: white;
   padding: 20px;
   text-align: center;
+  
 }
 
 header .logo-container {
@@ -189,6 +190,7 @@ main {
   background-color: #0056b3;
 }
 
+/* Estilos para el modal */
 .cart-modal {
   display: none;
   position: fixed;
@@ -196,58 +198,157 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo con opacidad para oscurecer el fondo */
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.3s ease-in-out; /* Animación de aparición */
 }
 
+/* Animación de fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilos del contenido del modal */
 .cart-modal-content {
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 500px;
-  max-height: 80vh; /* Limita la altura máxima del modal */
-  overflow-y: auto; /* Permite el scroll vertical si el contenido es demasiado grande */
+  padding: 30px;
+  border-radius: 12px; /* Bordes redondeados */
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+  overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
+  max-height: 80vh; /* Limitar la altura para que se vea bien en pantallas grandes */
 }
 
-.cart-items {
-  max-height: 60vh; /* Controla la altura máxima de los productos dentro del modal */
-  overflow-y: auto; /* Agrega scroll solo a la lista de productos */
+/* Estilos de los botones dentro del modal */
+#checkout-button, .close-modal {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+#checkout-button:hover, .close-modal:hover {
+  background-color: #218838;
+}
+
+#checkout-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Estilos de las opciones dentro del modal */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f9f9f9; /* Fondo suave para cada producto */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+}
+
+.cart-item-info p {
+  margin: 5px 0;
+  color: #333; /* Color de texto suave */
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
 .close-modal {
   font-size: 2rem;
   color: #333;
   cursor: pointer;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
+  transition: color 0.3s ease;
 }
 
-.cart-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+.close-modal:hover {
+  color: #f44336; /* Rojo al pasar el cursor */
 }
-
-.cart-item img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
-#checkout-button {
-  background-color: #28a745;
+/* Estilos para el pie de página */
+footer {
+  background-color: #2c3e50;
   color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin-top: 40px;
+  border-top: 4px solid #27ae60;
+  width: 100%;
 }
 
-#checkout-button:hover {
-  background-color: #218838;
+footer .contact-info p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ecf0f1;
+}
+
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espacio entre los iconos */
+}
+
+footer .social-icon {
+  font-size: 30px;
+  color: #bdc3c7;
+  text-decoration: none; /* Eliminar subrayado */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-icon:hover {
+  color: #2ecc71; /* Cambia a verde cuando el cursor pasa por encima */
+  transform: scale(1.1); /* Aumenta el tamaño ligeramente */
+}
+
+footer .social-icon:active {
+  color: #16a085; /* Un verde más oscuro cuando se hace clic */
+}
+
+/* Iconos de Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+#category-filter,
+#search-input {
+  width: 48%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+#category-filter:focus,
+#search-input:focus {
+  border-color: #27ae60;
 }
