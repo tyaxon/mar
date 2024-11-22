@@ -56,10 +56,19 @@ function updatePaginationButtons(totalProducts) {
     const button = document.createElement("button");
     button.textContent = i;
     button.classList.add("pagination-button");
+    
+    //verifica que la pagina esta activa
+    if (i === currentPage) {
+      button.classList.add("active");
+    }
+
     button.addEventListener("click", function () {
       currentPage = i;
       fetchProducts();
+      updatePaginationButtons(totalProducts); 
     });
+
     paginationContainer.appendChild(button);
   }
 }
+
