@@ -6,7 +6,7 @@ function loadCartFromLocalStorage() {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {  
       cart = JSON.parse(savedCart);
-      cartCount = cart.reduce((count, item) => count + item.quantity, 0);
+      cartCount = cart.length; 
     }
   }
   
@@ -16,7 +16,7 @@ function saveCartToLocalStorage() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Agregar producto al carrito
+
 // Agregar producto al carrito
 function addToCart(event) {
     const button = event.target;
@@ -55,7 +55,7 @@ function increaseQuantity(productId) {
   const product = cart.find(item => item.id === productId);
   if (product && product.quantity < product.stock) {
     product.quantity++;
-    cartCount++;
+    
     saveCartToLocalStorage();
     updateCartCount();
     updateCartModal();
@@ -67,7 +67,7 @@ function decreaseQuantity(productId) {
   const product = cart.find(item => item.id === productId);
   if (product && product.quantity > 1) {
     product.quantity--;
-    cartCount--;
+    
     saveCartToLocalStorage();
     updateCartCount();
     updateCartModal();

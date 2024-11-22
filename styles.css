@@ -207,7 +207,15 @@ main {
   border-radius: 8px;
   width: 80%;
   max-width: 500px;
+  max-height: 80vh; /* Limita la altura máxima del modal */
+  overflow-y: auto; /* Permite el scroll vertical si el contenido es demasiado grande */
 }
+
+.cart-items {
+  max-height: 60vh; /* Controla la altura máxima de los productos dentro del modal */
+  overflow-y: auto; /* Agrega scroll solo a la lista de productos */
+}
+
 
 .close-modal {
   font-size: 2rem;
