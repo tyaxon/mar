@@ -32,8 +32,7 @@ function displayProducts(products) {
                   ${isInCart ? 'disabled' : ''}>
             ${isInCart ? 'En el carrito' : 'Agregar al carrito'}
           </button>
-          ${isInCart ? `<button class="remove-from-cart" data-id="${id}">Eliminar del carrito</button>` : ''}
-        </div>
+        
       `;
       productsContainer.innerHTML += productCard;
     });
@@ -43,10 +42,7 @@ function displayProducts(products) {
       button.addEventListener('click', addToCart);
     });
   
-    // Agregar eventos para el botón de "Eliminar del carrito"
-    document.querySelectorAll('.remove-from-cart').forEach(button => {
-      button.addEventListener('click', removeFromCart);
-    });
+   
   }
   
 

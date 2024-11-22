@@ -25,3 +25,8 @@ async function fetchProducts(category = "", query = "") {
     console.error("Error al obtener los datos:", error);
   }
 }
+
+// Cargar productos cuando la página esté completamente cargada
+window.onload = function() {
+  fetchProducts();
+};

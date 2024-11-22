@@ -74,19 +74,34 @@ function decreaseQuantity(productId) {
   }
 }
 
+
 // Eliminar un producto del carrito
 function removeFromCart(productId) {
-  const productIndex = cart.findIndex(item => item.id === productId);
-  if (productIndex !== -1) {
-    cartCount -= cart[productIndex].quantity;
-    cart.splice(productIndex, 1);
-    saveCartToLocalStorage();
-    updateCartCount();
-    updateCartModal();
+    const productIndex = cart.findIndex(item => item.id === productId);
+    if (productIndex !== -1) {
+      cartCount -= cart[productIndex].quantity;
+      cart.splice(productIndex, 1);
+      saveCartToLocalStorage();
+      updateCartCount();
+      updateCartModal();
+      updateCartButton(productId, false);  // Cambiar el botón a "Agregar al carrito"
+    }
   }
-}
-
-// Actualizar el modal con los productos del carrito
+  
+  // Función para actualizar el estado del botón en la página
+  function updateCartButton(productId, isInCart) {
+    const button = document.querySelector(`[data-id="${productId}"]`);
+    if (button) {
+      if (isInCart) {
+        button.textContent = "En el carrito";  // Cambiar el texto a "En el carrito"
+        button.disabled = true;  // Desactivar el botón cuando está en el carrito
+      } else {
+        button.textContent = "Agregar al carrito";  // Cambiar el texto a "Agregar al carrito"
+        button.disabled = false;  // Habilitar el botón nuevamente
+      }
+    }
+  }
+  
 // Actualizar el modal con los productos del carrito
 function updateCartModal() {
     const cartItemsContainer = document.getElementById("cart-items");

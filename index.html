@@ -7,36 +7,35 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Tienda Deportiva</h1>
-
-  <!-- Header con carrito -->
   <header>
+    <div class="logo-container">
+      <img src="img/logo.jpeg" alt="Logo Tienda Deportiva" class="logo">
+      <h1>Tienda Deportiva KairaSport</h1>
+    </div>
     <div id="cart-button" class="cart-button">
       🛒 Carrito (<span id="cart-count">0</span> productos)
     </div>
   </header>
 
-  <!-- Filtro de categoría -->
-  <select id="category-filter">
-    <option value="">Todas las categorías</option>
-    <option value="Biker">Biker</option>
-    <option value="Calza">Calza</option>
-    <option value="Medias">Medias</option>
-    <option value="Top">Top</option>
-    <option value="Conjuntos">Conjuntos</option>
-  </select>
+  <main>
+    <section class="filters">
+      <select id="category-filter">
+        <option value="">Todas las categorías</option>
+        <option value="Biker">Biker</option>
+        <option value="Calza">Calza</option>
+        <option value="Medias">Medias</option>
+        <option value="Top">Top</option>
+        <option value="Conjuntos">Conjuntos</option>
+      </select>
 
-  <!-- Barra de búsqueda -->
-  
-<input type="text" id="search-input" placeholder="Buscar productos...">
+      <input type="text" id="search-input" placeholder="Buscar productos...">
+    </section>
 
-  <!-- Contenedor donde se mostrarán los productos -->
-  <div id="products-container"></div>
+    <div id="products-container" class="products-container"></div>
 
-  <!-- Paginación -->
-  <div id="pagination"></div>
+    <div id="pagination" class="pagination"></div>
+  </main>
 
-  <!-- Modal del carrito -->
   <div id="cart-modal" class="cart-modal">
     <div class="cart-modal-content">
       <span id="close-modal" class="close-modal">&times;</span>
@@ -48,9 +47,7 @@
       </div>
     </div>
   </div>
-  
 
-  
   <script src="api.js"></script>
   <script src="products.js"></script>
   <script src="cart.js"></script>
